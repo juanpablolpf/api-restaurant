@@ -6,5 +6,6 @@ const productCrontroller = new ProductCrontroller()
 
 productsRoutes.get("/", productCrontroller.index)
 productsRoutes.post("/", productCrontroller.create)
+productsRoutes.put("/:id", productCrontroller.upadate)
 
 export {productsRoutes}
