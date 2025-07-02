@@ -5,5 +5,6 @@ const productsRoutes = Router()
 const productCrontroller = new ProductCrontroller()
 
 productsRoutes.get("/", productCrontroller.index)
+productsRoutes.post("/", productCrontroller.create)
 
 export {productsRoutes}
