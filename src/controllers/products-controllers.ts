@@ -5,7 +5,15 @@ import {z} from "zod"
 class ProductCrontroller {
     async index(request: Request, response: Response, next: NextFunction){
         try {
-            return response.json({message: "ok"})
+            const {name} = request.query
+            const products = await knex<ProductRepository>("products")
+            .select()
+            .whereLike("name", `%${name ?? ""}%`)
+            .orderBy("name")
+           
+
+
+            return response.json(products)
         } catch (error) {
             next(error)
         }
